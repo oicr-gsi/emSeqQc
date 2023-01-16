@@ -1,0 +1,415 @@
+[
+    {
+        "id": "default_single_input",
+        "description": "A single pair of FastQ files with everything left at default",
+        "engineArguments": {
+            "write_to_cache": false,
+            "read_from_cache": false
+        },
+        "validators": [
+            {
+                "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
+                "metrics_compare": "@CHECKOUT@/tests/compare.sh",
+                "output_metrics": "/.mounts/labs/gsi/testdata/emSeqQc/expected_output/single.txt",
+                "type": "script"
+            }
+        ],
+        "metadata": {
+            "emSeqQc.bedgraph": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_emSeqQc_default_single_input_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "emSeqQc.fastpReport": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_emSeqQC_default_single_input_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "emSeqQc.bamqc": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_emSeqQC_default_single_input_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "emSeqQc.controlstatsLambda": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_emSeqQC_default_single_input_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "emSeqQc.controlstatsPuc19" : {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_emSeqQC_default_single_input_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            }
+        },
+        "arguments": {
+            "emSeqQc.bamQC.bamQCMetrics_jobMemory": null,
+            "emSeqQc.bamQC.bamQCMetrics_normalInsertMax": null,
+            "emSeqQc.bamQC.bamQCMetrics_threads": null,
+            "emSeqQc.bamQC.bamQCMetrics_timeout": null,
+            "emSeqQc.bamQC.collateResults_jobMemory": null,
+            "emSeqQc.bamQC.collateResults_modules": null,
+            "emSeqQc.bamQC.collateResults_threads": null,
+            "emSeqQc.bamQC.collateResults_timeout": null,
+            "emSeqQc.bamQC.countInputReads_jobMemory": null,
+            "emSeqQc.bamQC.countInputReads_modules": null,
+            "emSeqQc.bamQC.countInputReads_threads": null,
+            "emSeqQc.bamQC.countInputReads_timeout": null,
+            "emSeqQc.bamQC.cumulativeDistToHistogram_jobMemory": null,
+            "emSeqQc.bamQC.cumulativeDistToHistogram_modules": null,
+            "emSeqQc.bamQC.cumulativeDistToHistogram_threads": null,
+            "emSeqQc.bamQC.cumulativeDistToHistogram_timeout": null,
+            "emSeqQc.bamQC.downsampleRegion_jobMemory": null,
+            "emSeqQc.bamQC.downsampleRegion_modules": null,
+            "emSeqQc.bamQC.downsampleRegion_threads": null,
+            "emSeqQc.bamQC.downsampleRegion_timeout": null,
+            "emSeqQc.bamQC.downsample_downsampleSuffix": null,
+            "emSeqQc.bamQC.downsample_jobMemory": null,
+            "emSeqQc.bamQC.downsample_modules": null,
+            "emSeqQc.bamQC.downsample_randomSeed": null,
+            "emSeqQc.bamQC.downsample_threads": null,
+            "emSeqQc.bamQC.downsample_timeout": null,
+            "emSeqQc.bamQC.filter_jobMemory": null,
+            "emSeqQc.bamQC.filter_minQuality": null,
+            "emSeqQc.bamQC.filter_modules": null,
+            "emSeqQc.bamQC.filter_threads": null,
+            "emSeqQc.bamQC.filter_timeout": null,
+            "emSeqQc.bamQC.findDownsampleParamsMarkDup_baseInterval": null,
+            "emSeqQc.bamQC.findDownsampleParamsMarkDup_chromosomes": null,
+            "emSeqQc.bamQC.findDownsampleParamsMarkDup_customRegions": null,
+            "emSeqQc.bamQC.findDownsampleParamsMarkDup_intervalStart": null,
+            "emSeqQc.bamQC.findDownsampleParamsMarkDup_jobMemory": null,
+            "emSeqQc.bamQC.findDownsampleParamsMarkDup_modules": null,
+            "emSeqQc.bamQC.findDownsampleParamsMarkDup_threads": null,
+            "emSeqQc.bamQC.findDownsampleParamsMarkDup_threshold": null,
+            "emSeqQc.bamQC.findDownsampleParamsMarkDup_timeout": null,
+            "emSeqQc.bamQC.findDownsampleParams_jobMemory": null,
+            "emSeqQc.bamQC.findDownsampleParams_minReadsAbsolute": null,
+            "emSeqQc.bamQC.findDownsampleParams_minReadsRelative": null,
+            "emSeqQc.bamQC.findDownsampleParams_modules": null,
+            "emSeqQc.bamQC.findDownsampleParams_preDSMultiplier": null,
+            "emSeqQc.bamQC.findDownsampleParams_precision": null,
+            "emSeqQc.bamQC.findDownsampleParams_targetReads": null,
+            "emSeqQc.bamQC.findDownsampleParams_threads": null,
+            "emSeqQc.bamQC.findDownsampleParams_timeout": null,
+            "emSeqQc.bamQC.indexBamFile_jobMemory": null,
+            "emSeqQc.bamQC.indexBamFile_modules": null,
+            "emSeqQc.bamQC.indexBamFile_threads": null,
+            "emSeqQc.bamQC.indexBamFile_timeout": null,
+            "emSeqQc.bamQC.markDuplicates_jobMemory": null,
+            "emSeqQc.bamQC.markDuplicates_modules": null,
+            "emSeqQc.bamQC.markDuplicates_opticalDuplicatePixelDistance": null,
+            "emSeqQc.bamQC.markDuplicates_picardMaxMemMb": null,
+            "emSeqQc.bamQC.markDuplicates_threads": null,
+            "emSeqQc.bamQC.markDuplicates_timeout": null,
+            "emSeqQc.bamQC.outputFileNamePrefix": null,
+            "emSeqQc.bamQC.runMosdepth_jobMemory": null,
+            "emSeqQc.bamQC.runMosdepth_modules": null,
+            "emSeqQc.bamQC.runMosdepth_threads": null,
+            "emSeqQc.bamQC.runMosdepth_timeout": null,
+            "emSeqQc.bamQC.updateMetadata_jobMemory": null,
+            "emSeqQc.bamQC.updateMetadata_modules": null,
+            "emSeqQc.bamQC.updateMetadata_threads": null,
+            "emSeqQc.bamQC.updateMetadata_timeout": null,
+            "emSeqQc.fastqInput": [
+                {
+                    "read1": {
+                        "contents": {
+                            "configuration": "/.mounts/labs/gsi/testdata/emSeqQc/input_data/TCATCTCC-CTTGCTAG_R1.fastq.gz",
+                            "externalIds": [
+                                {
+                                    "id": "TEST",
+                                    "provider": "TEST"
+                                }
+                            ]
+                        },
+                        "type": "EXTERNAL"
+                    }, 
+                    "read2": {
+                        "contents": {
+                            "configuration": "/.mounts/labs/gsi/testdata/emSeqQc/input_data/TCATCTCC-CTTGCTAG_R2.fastq.gz",
+                            "externalIds": [
+                                {
+                                    "id": "TEST",
+                                    "provider": "TEST"
+                                }
+                            ]
+                        },
+                        "type": "EXTERNAL"
+                    }, 
+                    "readGroup": "f6e4c3e8f0f82bbe62c4fd6b39744ad1d5795f521ec1e4b6291d26130a234aa1"
+                }
+            ],
+            "emSeqQc.mergeBams.memory": null,
+            "emSeqQc.mergeBams.modules": null,
+            "emSeqQc.mergeBams.threads": null,
+            "emSeqQc.mergeBams.timeout": null,
+            "emSeqQc.mergeFastpJson.memory": null,
+            "emSeqQc.mergeFastpJson.modules": null,
+            "emSeqQc.mergeFastpJson.threads": null,
+            "emSeqQc.mergeFastpJson.timeout": null,
+            "emSeqQc.methylDackel.fasta": null,
+            "emSeqQc.methylDackel.memory": null,
+            "emSeqQc.methylDackel.modules": null,
+            "emSeqQc.methylDackel.threads": null,
+            "emSeqQc.methylDackel.timeout": null,
+            "emSeqQc.outputFileNamePrefix": "output",
+            "emSeqQc.reference": "hg38",
+            "emSeqQc.samtoolsStatsLambdaControl.memory": null,
+            "emSeqQc.samtoolsStatsLambdaControl.modules": null,
+            "emSeqQc.samtoolsStatsLambdaControl.threads": null,
+            "emSeqQc.samtoolsStatsLambdaControl.timeout": null,
+            "emSeqQc.samtoolsStatsPuc19Control.memory": null,
+            "emSeqQc.samtoolsStatsPuc19Control.modules": null,
+            "emSeqQc.samtoolsStatsPuc19Control.threads": null,
+            "emSeqQc.samtoolsStatsPuc19Control.timeout": null,
+            "emSeqQc.trim_and_align.bwaIndex": null,
+            "emSeqQc.trim_and_align.fastpDisableAdapterTrimming": null,
+            "emSeqQc.trim_and_align.fastpDisableLengthFiltering": null,
+            "emSeqQc.trim_and_align.fastpDisableQualityFiltering": null,
+            "emSeqQc.trim_and_align.fastpDisableTrimPolyG": null,
+            "emSeqQc.trim_and_align.fastpLengthRequired": null,
+            "emSeqQc.trim_and_align.fastpNBaseLimit": null,
+            "emSeqQc.trim_and_align.fastpQualifiedQualityPhred": null,
+            "emSeqQc.trim_and_align.fastpUnqualifiedPercentLimit": null,
+            "emSeqQc.trim_and_align.memory": null,
+            "emSeqQc.trim_and_align.modules": null,
+            "emSeqQc.trim_and_align.threads": null,
+            "emSeqQc.trim_and_align.timeout": null
+        }
+    },
+    {
+        "id": "default_multi_input",
+        "description": "Two pairs of FastQ files with everything left at default",
+        "engineArguments": {
+            "write_to_cache": false,
+            "read_from_cache": false
+        },
+        "validators": [
+            {
+                "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
+                "metrics_compare": "@CHECKOUT@/tests/compare.sh",
+                "output_metrics": "/.mounts/labs/gsi/testdata/emSeqQc/expected_output/multi.txt",
+                "type": "script"
+            }
+        ],
+        "metadata": {
+            "emSeqQc.bedgraph": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_emSeqQc_default_multi_input_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "emSeqQc.fastpReport": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_emSeqQC_default_multi_input_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "emSeqQc.bamqc": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_emSeqQC_default_multi_input_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "emSeqQc.controlstatsLambda": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_emSeqQC_default_multi_input_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "emSeqQc.controlstatsPuc19" : {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_emSeqQC_default_multi_input_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            }
+        },
+        "arguments": {
+            "emSeqQc.bamQC.bamQCMetrics_jobMemory": null,
+            "emSeqQc.bamQC.bamQCMetrics_normalInsertMax": null,
+            "emSeqQc.bamQC.bamQCMetrics_threads": null,
+            "emSeqQc.bamQC.bamQCMetrics_timeout": null,
+            "emSeqQc.bamQC.collateResults_jobMemory": null,
+            "emSeqQc.bamQC.collateResults_modules": null,
+            "emSeqQc.bamQC.collateResults_threads": null,
+            "emSeqQc.bamQC.collateResults_timeout": null,
+            "emSeqQc.bamQC.countInputReads_jobMemory": null,
+            "emSeqQc.bamQC.countInputReads_modules": null,
+            "emSeqQc.bamQC.countInputReads_threads": null,
+            "emSeqQc.bamQC.countInputReads_timeout": null,
+            "emSeqQc.bamQC.cumulativeDistToHistogram_jobMemory": null,
+            "emSeqQc.bamQC.cumulativeDistToHistogram_modules": null,
+            "emSeqQc.bamQC.cumulativeDistToHistogram_threads": null,
+            "emSeqQc.bamQC.cumulativeDistToHistogram_timeout": null,
+            "emSeqQc.bamQC.downsampleRegion_jobMemory": null,
+            "emSeqQc.bamQC.downsampleRegion_modules": null,
+            "emSeqQc.bamQC.downsampleRegion_threads": null,
+            "emSeqQc.bamQC.downsampleRegion_timeout": null,
+            "emSeqQc.bamQC.downsample_downsampleSuffix": null,
+            "emSeqQc.bamQC.downsample_jobMemory": null,
+            "emSeqQc.bamQC.downsample_modules": null,
+            "emSeqQc.bamQC.downsample_randomSeed": null,
+            "emSeqQc.bamQC.downsample_threads": null,
+            "emSeqQc.bamQC.downsample_timeout": null,
+            "emSeqQc.bamQC.filter_jobMemory": null,
+            "emSeqQc.bamQC.filter_minQuality": null,
+            "emSeqQc.bamQC.filter_modules": null,
+            "emSeqQc.bamQC.filter_threads": null,
+            "emSeqQc.bamQC.filter_timeout": null,
+            "emSeqQc.bamQC.findDownsampleParamsMarkDup_baseInterval": null,
+            "emSeqQc.bamQC.findDownsampleParamsMarkDup_chromosomes": null,
+            "emSeqQc.bamQC.findDownsampleParamsMarkDup_customRegions": null,
+            "emSeqQc.bamQC.findDownsampleParamsMarkDup_intervalStart": null,
+            "emSeqQc.bamQC.findDownsampleParamsMarkDup_jobMemory": null,
+            "emSeqQc.bamQC.findDownsampleParamsMarkDup_modules": null,
+            "emSeqQc.bamQC.findDownsampleParamsMarkDup_threads": null,
+            "emSeqQc.bamQC.findDownsampleParamsMarkDup_threshold": null,
+            "emSeqQc.bamQC.findDownsampleParamsMarkDup_timeout": null,
+            "emSeqQc.bamQC.findDownsampleParams_jobMemory": null,
+            "emSeqQc.bamQC.findDownsampleParams_minReadsAbsolute": null,
+            "emSeqQc.bamQC.findDownsampleParams_minReadsRelative": null,
+            "emSeqQc.bamQC.findDownsampleParams_modules": null,
+            "emSeqQc.bamQC.findDownsampleParams_preDSMultiplier": null,
+            "emSeqQc.bamQC.findDownsampleParams_precision": null,
+            "emSeqQc.bamQC.findDownsampleParams_targetReads": null,
+            "emSeqQc.bamQC.findDownsampleParams_threads": null,
+            "emSeqQc.bamQC.findDownsampleParams_timeout": null,
+            "emSeqQc.bamQC.indexBamFile_jobMemory": null,
+            "emSeqQc.bamQC.indexBamFile_modules": null,
+            "emSeqQc.bamQC.indexBamFile_threads": null,
+            "emSeqQc.bamQC.indexBamFile_timeout": null,
+            "emSeqQc.bamQC.markDuplicates_jobMemory": null,
+            "emSeqQc.bamQC.markDuplicates_modules": null,
+            "emSeqQc.bamQC.markDuplicates_opticalDuplicatePixelDistance": null,
+            "emSeqQc.bamQC.markDuplicates_picardMaxMemMb": null,
+            "emSeqQc.bamQC.markDuplicates_threads": null,
+            "emSeqQc.bamQC.markDuplicates_timeout": null,
+            "emSeqQc.bamQC.outputFileNamePrefix": null,
+            "emSeqQc.bamQC.runMosdepth_jobMemory": null,
+            "emSeqQc.bamQC.runMosdepth_modules": null,
+            "emSeqQc.bamQC.runMosdepth_threads": null,
+            "emSeqQc.bamQC.runMosdepth_timeout": null,
+            "emSeqQc.bamQC.updateMetadata_jobMemory": null,
+            "emSeqQc.bamQC.updateMetadata_modules": null,
+            "emSeqQc.bamQC.updateMetadata_threads": null,
+            "emSeqQc.bamQC.updateMetadata_timeout": null,
+            "emSeqQc.fastqInput": [
+                {
+                    "read1": {
+                        "contents": {
+                            "configuration": "/.mounts/labs/gsi/testdata/emSeqQc/input_data/AGCCTATC-TGCGTAAC_R1.fastq.gz",
+                            "externalIds": [
+                                {
+                                    "id": "TEST",
+                                    "provider": "TEST"
+                                }
+                            ]
+                        },
+                        "type": "EXTERNAL"
+                    }, 
+                    "read2": {
+                        "contents": {
+                            "configuration": "/.mounts/labs/gsi/testdata/emSeqQc/input_data/AGCCTATC-TGCGTAAC_R2.fastq.gz",
+                            "externalIds": [
+                                {
+                                    "id": "TEST",
+                                    "provider": "TEST"
+                                }
+                            ]
+                        },
+                        "type": "EXTERNAL"
+                    }, 
+                    "readGroup": "ecde0af905d5c5f6e5e26b9f475adefcaa252de165320e10c863baa52fb35a52"
+                },
+                {
+                    "read1": {
+                        "contents": {
+                            "configuration": "/.mounts/labs/gsi/testdata/emSeqQc/input_data/TCATCTCC-CTTGCTAG_R1.fastq.gz",
+                            "externalIds": [
+                                {
+                                    "id": "TEST",
+                                    "provider": "TEST"
+                                }
+                            ]
+                        },
+                        "type": "EXTERNAL"
+                    }, 
+                    "read2": {
+                        "contents": {
+                            "configuration": "/.mounts/labs/gsi/testdata/emSeqQc/input_data/TCATCTCC-CTTGCTAG_R2.fastq.gz",
+                            "externalIds": [
+                                {
+                                    "id": "TEST",
+                                    "provider": "TEST"
+                                }
+                            ]
+                        },
+                        "type": "EXTERNAL"
+                    }, 
+                    "readGroup": "f6e4c3e8f0f82bbe62c4fd6b39744ad1d5795f521ec1e4b6291d26130a234aa1"
+                }
+            ],
+            "emSeqQc.mergeBams.memory": null,
+            "emSeqQc.mergeBams.modules": null,
+            "emSeqQc.mergeBams.threads": null,
+            "emSeqQc.mergeBams.timeout": null,
+            "emSeqQc.mergeFastpJson.memory": null,
+            "emSeqQc.mergeFastpJson.modules": null,
+            "emSeqQc.mergeFastpJson.threads": null,
+            "emSeqQc.mergeFastpJson.timeout": null,
+            "emSeqQc.methylDackel.fasta": null,
+            "emSeqQc.methylDackel.memory": null,
+            "emSeqQc.methylDackel.modules": null,
+            "emSeqQc.methylDackel.threads": null,
+            "emSeqQc.methylDackel.timeout": null,
+            "emSeqQc.outputFileNamePrefix": "output",
+            "emSeqQc.reference": "hg38",
+            "emSeqQc.samtoolsStatsLambdaControl.memory": null,
+            "emSeqQc.samtoolsStatsLambdaControl.modules": null,
+            "emSeqQc.samtoolsStatsLambdaControl.threads": null,
+            "emSeqQc.samtoolsStatsLambdaControl.timeout": null,
+            "emSeqQc.samtoolsStatsPuc19Control.memory": null,
+            "emSeqQc.samtoolsStatsPuc19Control.modules": null,
+            "emSeqQc.samtoolsStatsPuc19Control.threads": null,
+            "emSeqQc.samtoolsStatsPuc19Control.timeout": null,
+            "emSeqQc.trim_and_align.bwaIndex": null,
+            "emSeqQc.trim_and_align.fastpDisableAdapterTrimming": null,
+            "emSeqQc.trim_and_align.fastpDisableLengthFiltering": null,
+            "emSeqQc.trim_and_align.fastpDisableQualityFiltering": null,
+            "emSeqQc.trim_and_align.fastpDisableTrimPolyG": null,
+            "emSeqQc.trim_and_align.fastpLengthRequired": null,
+            "emSeqQc.trim_and_align.fastpNBaseLimit": null,
+            "emSeqQc.trim_and_align.fastpQualifiedQualityPhred": null,
+            "emSeqQc.trim_and_align.fastpUnqualifiedPercentLimit": null,
+            "emSeqQc.trim_and_align.memory": null,
+            "emSeqQc.trim_and_align.modules": null,
+            "emSeqQc.trim_and_align.threads": null,
+            "emSeqQc.trim_and_align.timeout": null
+        }
+    }
+]
