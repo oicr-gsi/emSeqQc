@@ -51,10 +51,23 @@ workflow emSeqQc {
                 modules = "fastp/0.23.2 bwa-meth/0.2.5 ~{ref.indexModule}"
         }
     }
-    call mergeBams {
-        input:
-            bams = trim_and_align.bam
+
+    if (length(trim_and_align.bam) == 1) {
+        File first_bam = trim_and_align.bam[0]
+        File first_index = trim_and_align.index[0]
     }
+
+    # Merging bams won't be done if there is only one bam
+    if (length(trim_and_align.bam) > 1) {
+        call mergeBams {
+            input:
+                bams = trim_and_align.bam
+        }
+    }
+
+    File input_bam = select_first([first_bam, mergeBams.bam])
+    File input_bam_index = select_first([first_index, mergeBams.index])
+
     call mergeFastpJson {
         input:
             jsons = trim_and_align.fastpReport,
@@ -62,15 +75,15 @@ workflow emSeqQc {
     }
     call methylDackel {
         input:
-            bam = mergeBams.bam,
-            index = mergeBams.index,
+            bam = input_bam,
+            index = input_bam_index,
             prefix = outputFileNamePrefix,
             fasta = ref.fasta,
             modules = "methyldackel/0.6.1 ~{ref.genomeModule}"
     }
     call bamQC.bamQC {
         input:
-            bamFile = mergeBams.bam,
+            bamFile = input_bam,
             metadata = {},
             bamQCMetrics_modules = "bam-qc-metrics/0.2.5 ~{ref.genomeModule}",
             bamQCMetrics_refFasta = ref.fasta,
@@ -80,15 +93,15 @@ workflow emSeqQc {
 
     call samtoolsStatsLambdaControl {
         input:
-            bam = mergeBams.bam,
-            index = mergeBams.index,
+            bam = input_bam,
+            index = input_bam_index,
             prefix = outputFileNamePrefix
     }
 
     call samtoolsStatsPuc19Control {
         input:
-            bam = mergeBams.bam,
-            index = mergeBams.index,
+            bam = input_bam,
+            index = input_bam_index,
             prefix = outputFileNamePrefix
     }
 
@@ -203,17 +216,20 @@ task trim_and_align {
             -i ~{read1} -I ~{read2} \
         | bwameth.py -p -t ~{threads} --read-group ~{bwaReadGroup} --reference ~{bwaIndex} /dev/stdin \
         | samtools sort -o output.bam -@ ~{threads} -
+        samtools index -@ ~{threads} output.bam
     >>>
 
     output {
         File fastpReport = "fastp.json"
         File bam = "output.bam"
+        File index = "output.bam.bai"
     }
 
     meta {
         output_meta: {
             fastpReport: "The json report file produced by fastp",
-            bam: "The bam file produced by the trimmed FastQ files fed to bwa-meth"
+            bam: "The bam file produced by the trimmed FastQ files fed to bwa-meth",
+            index: "The indexed .bai file for the bam"
         }
     }
 
