@@ -31,14 +31,6 @@
                 ],
                 "type": "ALL"
             },
-            "emSeqQc.bamqc": {
-                "contents": [
-                    {
-                        "outputDirectory": "@SCRATCH@/@DATE@_emSeqQC_default_single_input_@JENKINSID@"
-                    }
-                ],
-                "type": "ALL"
-            },
             "emSeqQc.controlstatsLambda": {
                 "contents": [
                     {
@@ -54,77 +46,41 @@
                     }
                 ],
                 "type": "ALL"
+            },
+            "emSeqQc.downsampledCounts": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_emSeqQC_default_single_input_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "emSeqQc.samtools": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_emSeqQC_default_single_input_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "emSeqQc.picard": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_emSeqQC_default_single_input_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "emSeqQc.bedtoolsCoverage": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_emSeqQC_default_single_input_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
             }
         },
         "arguments": {
-            "emSeqQc.bamQC.bamQCMetrics_jobMemory": null,
-            "emSeqQc.bamQC.bamQCMetrics_normalInsertMax": null,
-            "emSeqQc.bamQC.bamQCMetrics_threads": null,
-            "emSeqQc.bamQC.bamQCMetrics_timeout": null,
-            "emSeqQc.bamQC.collateResults_jobMemory": null,
-            "emSeqQc.bamQC.collateResults_modules": null,
-            "emSeqQc.bamQC.collateResults_threads": null,
-            "emSeqQc.bamQC.collateResults_timeout": null,
-            "emSeqQc.bamQC.countInputReads_jobMemory": null,
-            "emSeqQc.bamQC.countInputReads_modules": null,
-            "emSeqQc.bamQC.countInputReads_threads": null,
-            "emSeqQc.bamQC.countInputReads_timeout": null,
-            "emSeqQc.bamQC.cumulativeDistToHistogram_jobMemory": null,
-            "emSeqQc.bamQC.cumulativeDistToHistogram_modules": null,
-            "emSeqQc.bamQC.cumulativeDistToHistogram_threads": null,
-            "emSeqQc.bamQC.cumulativeDistToHistogram_timeout": null,
-            "emSeqQc.bamQC.downsampleRegion_jobMemory": null,
-            "emSeqQc.bamQC.downsampleRegion_modules": null,
-            "emSeqQc.bamQC.downsampleRegion_threads": null,
-            "emSeqQc.bamQC.downsampleRegion_timeout": null,
-            "emSeqQc.bamQC.downsample_downsampleSuffix": null,
-            "emSeqQc.bamQC.downsample_jobMemory": null,
-            "emSeqQc.bamQC.downsample_modules": null,
-            "emSeqQc.bamQC.downsample_randomSeed": null,
-            "emSeqQc.bamQC.downsample_threads": null,
-            "emSeqQc.bamQC.downsample_timeout": null,
-            "emSeqQc.bamQC.filter_jobMemory": null,
-            "emSeqQc.bamQC.filter_minQuality": null,
-            "emSeqQc.bamQC.filter_modules": null,
-            "emSeqQc.bamQC.filter_threads": null,
-            "emSeqQc.bamQC.filter_timeout": null,
-            "emSeqQc.bamQC.findDownsampleParamsMarkDup_baseInterval": null,
-            "emSeqQc.bamQC.findDownsampleParamsMarkDup_chromosomes": null,
-            "emSeqQc.bamQC.findDownsampleParamsMarkDup_customRegions": null,
-            "emSeqQc.bamQC.findDownsampleParamsMarkDup_intervalStart": null,
-            "emSeqQc.bamQC.findDownsampleParamsMarkDup_jobMemory": null,
-            "emSeqQc.bamQC.findDownsampleParamsMarkDup_modules": null,
-            "emSeqQc.bamQC.findDownsampleParamsMarkDup_threads": null,
-            "emSeqQc.bamQC.findDownsampleParamsMarkDup_threshold": null,
-            "emSeqQc.bamQC.findDownsampleParamsMarkDup_timeout": null,
-            "emSeqQc.bamQC.findDownsampleParams_jobMemory": null,
-            "emSeqQc.bamQC.findDownsampleParams_minReadsAbsolute": null,
-            "emSeqQc.bamQC.findDownsampleParams_minReadsRelative": null,
-            "emSeqQc.bamQC.findDownsampleParams_modules": null,
-            "emSeqQc.bamQC.findDownsampleParams_preDSMultiplier": null,
-            "emSeqQc.bamQC.findDownsampleParams_precision": null,
-            "emSeqQc.bamQC.findDownsampleParams_targetReads": null,
-            "emSeqQc.bamQC.findDownsampleParams_threads": null,
-            "emSeqQc.bamQC.findDownsampleParams_timeout": null,
-            "emSeqQc.bamQC.indexBamFile_jobMemory": null,
-            "emSeqQc.bamQC.indexBamFile_modules": null,
-            "emSeqQc.bamQC.indexBamFile_threads": null,
-            "emSeqQc.bamQC.indexBamFile_timeout": null,
-            "emSeqQc.bamQC.markDuplicates_jobMemory": null,
-            "emSeqQc.bamQC.markDuplicates_modules": null,
-            "emSeqQc.bamQC.markDuplicates_opticalDuplicatePixelDistance": null,
-            "emSeqQc.bamQC.markDuplicates_picardMaxMemMb": null,
-            "emSeqQc.bamQC.markDuplicates_threads": null,
-            "emSeqQc.bamQC.markDuplicates_timeout": null,
-            "emSeqQc.bamQC.outputFileNamePrefix": null,
-            "emSeqQc.bamQC.runMosdepth_jobMemory": null,
-            "emSeqQc.bamQC.runMosdepth_modules": null,
-            "emSeqQc.bamQC.runMosdepth_threads": null,
-            "emSeqQc.bamQC.runMosdepth_timeout": null,
-            "emSeqQc.bamQC.updateMetadata_jobMemory": null,
-            "emSeqQc.bamQC.updateMetadata_modules": null,
-            "emSeqQc.bamQC.updateMetadata_threads": null,
-            "emSeqQc.bamQC.updateMetadata_timeout": null,
             "emSeqQc.fastqInput": [
                 {
                     "read1": {
@@ -167,6 +123,7 @@
             "emSeqQc.methylDackel.modules": null,
             "emSeqQc.methylDackel.threads": null,
             "emSeqQc.methylDackel.timeout": null,
+            "emSeqQc.opticalDuplicatePixelDistance": 100,
             "emSeqQc.outputFileNamePrefix": "output",
             "emSeqQc.reference": "hg38",
             "emSeqQc.samtoolsStatsLambdaControl.memory": null,
@@ -177,6 +134,44 @@
             "emSeqQc.samtoolsStatsPuc19Control.modules": null,
             "emSeqQc.samtoolsStatsPuc19Control.threads": null,
             "emSeqQc.samtoolsStatsPuc19Control.timeout": null,
+            "emSeqQc.smallBamQc.bedtoolsCoverageFull_memory": null,
+            "emSeqQc.smallBamQc.bedtoolsCoverageFull_modules": null,
+            "emSeqQc.smallBamQc.bedtoolsCoverageFull_threads": null,
+            "emSeqQc.smallBamQc.bedtoolsCoverageFull_timeout": null,
+            "emSeqQc.smallBamQc.bedtoolsCoverageSmall_memory": null,
+            "emSeqQc.smallBamQc.bedtoolsCoverageSmall_modules": null,
+            "emSeqQc.smallBamQc.bedtoolsCoverageSmall_threads": null,
+            "emSeqQc.smallBamQc.bedtoolsCoverageSmall_timeout": null,
+            "emSeqQc.smallBamQc.bedtoolsReadsToUse": null,
+            "emSeqQc.smallBamQc.features": null,
+            "emSeqQc.smallBamQc.featuresHead_memory": null,
+            "emSeqQc.smallBamQc.featuresHead_modules": null,
+            "emSeqQc.smallBamQc.featuresHead_threads": null,
+            "emSeqQc.smallBamQc.featuresHead_timeout": null,
+            "emSeqQc.smallBamQc.featuresToUse": null,
+            "emSeqQc.smallBamQc.markDuplicates_jobMemory": null,
+            "emSeqQc.smallBamQc.markDuplicates_modules": null,
+            "emSeqQc.smallBamQc.markDuplicates_picardMaxMemMb": null,
+            "emSeqQc.smallBamQc.markDuplicates_threads": null,
+            "emSeqQc.smallBamQc.markDuplicates_timeout": null,
+            "emSeqQc.smallBamQc.picardMarkDuplicatesReadsToUse": null,
+            "emSeqQc.smallBamQc.samtoolsHead_memory": null,
+            "emSeqQc.smallBamQc.samtoolsHead_modules": null,
+            "emSeqQc.smallBamQc.samtoolsHead_threads": null,
+            "emSeqQc.smallBamQc.samtoolsHead_timeout": null,
+            "emSeqQc.smallBamQc.samtoolsStatsFull_memory": null,
+            "emSeqQc.smallBamQc.samtoolsStatsFull_modules": null,
+            "emSeqQc.smallBamQc.samtoolsStatsFull_threads": null,
+            "emSeqQc.smallBamQc.samtoolsStatsFull_timeout": null,
+            "emSeqQc.smallBamQc.samtoolsStatsReadsToUse": null,
+            "emSeqQc.smallBamQc.samtoolsStatsSmall_memory": null,
+            "emSeqQc.smallBamQc.samtoolsStatsSmall_modules": null,
+            "emSeqQc.smallBamQc.samtoolsStatsSmall_threads": null,
+            "emSeqQc.smallBamQc.samtoolsStatsSmall_timeout": null,
+            "emSeqQc.smallBamQc.storeDownsampledCounts_memory": null,
+            "emSeqQc.smallBamQc.storeDownsampledCounts_modules": null,
+            "emSeqQc.smallBamQc.storeDownsampledCounts_threads": null,
+            "emSeqQc.smallBamQc.storeDownsampledCounts_timeout": null,
             "emSeqQc.trim_and_align.bwaIndex": null,
             "emSeqQc.trim_and_align.fastpDisableAdapterTrimming": null,
             "emSeqQc.trim_and_align.fastpDisableLengthFiltering": null,
@@ -224,14 +219,6 @@
                 ],
                 "type": "ALL"
             },
-            "emSeqQc.bamqc": {
-                "contents": [
-                    {
-                        "outputDirectory": "@SCRATCH@/@DATE@_emSeqQC_default_multi_input_@JENKINSID@"
-                    }
-                ],
-                "type": "ALL"
-            },
             "emSeqQc.controlstatsLambda": {
                 "contents": [
                     {
@@ -247,77 +234,41 @@
                     }
                 ],
                 "type": "ALL"
+            },
+            "emSeqQc.downsampledCounts": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_emSeqQC_default_multi_input_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "emSeqQc.samtools": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_emSeqQC_default_multi_input_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "emSeqQc.picard": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_emSeqQC_default_multi_input_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "emSeqQc.bedtoolsCoverage": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_emSeqQC_default_multi_input_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
             }
         },
         "arguments": {
-            "emSeqQc.bamQC.bamQCMetrics_jobMemory": null,
-            "emSeqQc.bamQC.bamQCMetrics_normalInsertMax": null,
-            "emSeqQc.bamQC.bamQCMetrics_threads": null,
-            "emSeqQc.bamQC.bamQCMetrics_timeout": null,
-            "emSeqQc.bamQC.collateResults_jobMemory": null,
-            "emSeqQc.bamQC.collateResults_modules": null,
-            "emSeqQc.bamQC.collateResults_threads": null,
-            "emSeqQc.bamQC.collateResults_timeout": null,
-            "emSeqQc.bamQC.countInputReads_jobMemory": null,
-            "emSeqQc.bamQC.countInputReads_modules": null,
-            "emSeqQc.bamQC.countInputReads_threads": null,
-            "emSeqQc.bamQC.countInputReads_timeout": null,
-            "emSeqQc.bamQC.cumulativeDistToHistogram_jobMemory": null,
-            "emSeqQc.bamQC.cumulativeDistToHistogram_modules": null,
-            "emSeqQc.bamQC.cumulativeDistToHistogram_threads": null,
-            "emSeqQc.bamQC.cumulativeDistToHistogram_timeout": null,
-            "emSeqQc.bamQC.downsampleRegion_jobMemory": null,
-            "emSeqQc.bamQC.downsampleRegion_modules": null,
-            "emSeqQc.bamQC.downsampleRegion_threads": null,
-            "emSeqQc.bamQC.downsampleRegion_timeout": null,
-            "emSeqQc.bamQC.downsample_downsampleSuffix": null,
-            "emSeqQc.bamQC.downsample_jobMemory": null,
-            "emSeqQc.bamQC.downsample_modules": null,
-            "emSeqQc.bamQC.downsample_randomSeed": null,
-            "emSeqQc.bamQC.downsample_threads": null,
-            "emSeqQc.bamQC.downsample_timeout": null,
-            "emSeqQc.bamQC.filter_jobMemory": null,
-            "emSeqQc.bamQC.filter_minQuality": null,
-            "emSeqQc.bamQC.filter_modules": null,
-            "emSeqQc.bamQC.filter_threads": null,
-            "emSeqQc.bamQC.filter_timeout": null,
-            "emSeqQc.bamQC.findDownsampleParamsMarkDup_baseInterval": null,
-            "emSeqQc.bamQC.findDownsampleParamsMarkDup_chromosomes": null,
-            "emSeqQc.bamQC.findDownsampleParamsMarkDup_customRegions": null,
-            "emSeqQc.bamQC.findDownsampleParamsMarkDup_intervalStart": null,
-            "emSeqQc.bamQC.findDownsampleParamsMarkDup_jobMemory": null,
-            "emSeqQc.bamQC.findDownsampleParamsMarkDup_modules": null,
-            "emSeqQc.bamQC.findDownsampleParamsMarkDup_threads": null,
-            "emSeqQc.bamQC.findDownsampleParamsMarkDup_threshold": null,
-            "emSeqQc.bamQC.findDownsampleParamsMarkDup_timeout": null,
-            "emSeqQc.bamQC.findDownsampleParams_jobMemory": null,
-            "emSeqQc.bamQC.findDownsampleParams_minReadsAbsolute": null,
-            "emSeqQc.bamQC.findDownsampleParams_minReadsRelative": null,
-            "emSeqQc.bamQC.findDownsampleParams_modules": null,
-            "emSeqQc.bamQC.findDownsampleParams_preDSMultiplier": null,
-            "emSeqQc.bamQC.findDownsampleParams_precision": null,
-            "emSeqQc.bamQC.findDownsampleParams_targetReads": null,
-            "emSeqQc.bamQC.findDownsampleParams_threads": null,
-            "emSeqQc.bamQC.findDownsampleParams_timeout": null,
-            "emSeqQc.bamQC.indexBamFile_jobMemory": null,
-            "emSeqQc.bamQC.indexBamFile_modules": null,
-            "emSeqQc.bamQC.indexBamFile_threads": null,
-            "emSeqQc.bamQC.indexBamFile_timeout": null,
-            "emSeqQc.bamQC.markDuplicates_jobMemory": null,
-            "emSeqQc.bamQC.markDuplicates_modules": null,
-            "emSeqQc.bamQC.markDuplicates_opticalDuplicatePixelDistance": null,
-            "emSeqQc.bamQC.markDuplicates_picardMaxMemMb": null,
-            "emSeqQc.bamQC.markDuplicates_threads": null,
-            "emSeqQc.bamQC.markDuplicates_timeout": null,
-            "emSeqQc.bamQC.outputFileNamePrefix": null,
-            "emSeqQc.bamQC.runMosdepth_jobMemory": null,
-            "emSeqQc.bamQC.runMosdepth_modules": null,
-            "emSeqQc.bamQC.runMosdepth_threads": null,
-            "emSeqQc.bamQC.runMosdepth_timeout": null,
-            "emSeqQc.bamQC.updateMetadata_jobMemory": null,
-            "emSeqQc.bamQC.updateMetadata_modules": null,
-            "emSeqQc.bamQC.updateMetadata_threads": null,
-            "emSeqQc.bamQC.updateMetadata_timeout": null,
             "emSeqQc.fastqInput": [
                 {
                     "read1": {
@@ -387,6 +338,7 @@
             "emSeqQc.methylDackel.modules": null,
             "emSeqQc.methylDackel.threads": null,
             "emSeqQc.methylDackel.timeout": null,
+            "emSeqQc.opticalDuplicatePixelDistance": 100,
             "emSeqQc.outputFileNamePrefix": "output",
             "emSeqQc.reference": "hg38",
             "emSeqQc.samtoolsStatsLambdaControl.memory": null,
@@ -397,6 +349,44 @@
             "emSeqQc.samtoolsStatsPuc19Control.modules": null,
             "emSeqQc.samtoolsStatsPuc19Control.threads": null,
             "emSeqQc.samtoolsStatsPuc19Control.timeout": null,
+            "emSeqQc.smallBamQc.bedtoolsCoverageFull_memory": null,
+            "emSeqQc.smallBamQc.bedtoolsCoverageFull_modules": null,
+            "emSeqQc.smallBamQc.bedtoolsCoverageFull_threads": null,
+            "emSeqQc.smallBamQc.bedtoolsCoverageFull_timeout": null,
+            "emSeqQc.smallBamQc.bedtoolsCoverageSmall_memory": null,
+            "emSeqQc.smallBamQc.bedtoolsCoverageSmall_modules": null,
+            "emSeqQc.smallBamQc.bedtoolsCoverageSmall_threads": null,
+            "emSeqQc.smallBamQc.bedtoolsCoverageSmall_timeout": null,
+            "emSeqQc.smallBamQc.bedtoolsReadsToUse": null,
+            "emSeqQc.smallBamQc.features": null,
+            "emSeqQc.smallBamQc.featuresHead_memory": null,
+            "emSeqQc.smallBamQc.featuresHead_modules": null,
+            "emSeqQc.smallBamQc.featuresHead_threads": null,
+            "emSeqQc.smallBamQc.featuresHead_timeout": null,
+            "emSeqQc.smallBamQc.featuresToUse": null,
+            "emSeqQc.smallBamQc.markDuplicates_jobMemory": null,
+            "emSeqQc.smallBamQc.markDuplicates_modules": null,
+            "emSeqQc.smallBamQc.markDuplicates_picardMaxMemMb": null,
+            "emSeqQc.smallBamQc.markDuplicates_threads": null,
+            "emSeqQc.smallBamQc.markDuplicates_timeout": null,
+            "emSeqQc.smallBamQc.picardMarkDuplicatesReadsToUse": null,
+            "emSeqQc.smallBamQc.samtoolsHead_memory": null,
+            "emSeqQc.smallBamQc.samtoolsHead_modules": null,
+            "emSeqQc.smallBamQc.samtoolsHead_threads": null,
+            "emSeqQc.smallBamQc.samtoolsHead_timeout": null,
+            "emSeqQc.smallBamQc.samtoolsStatsFull_memory": null,
+            "emSeqQc.smallBamQc.samtoolsStatsFull_modules": null,
+            "emSeqQc.smallBamQc.samtoolsStatsFull_threads": null,
+            "emSeqQc.smallBamQc.samtoolsStatsFull_timeout": null,
+            "emSeqQc.smallBamQc.samtoolsStatsReadsToUse": null,
+            "emSeqQc.smallBamQc.samtoolsStatsSmall_memory": null,
+            "emSeqQc.smallBamQc.samtoolsStatsSmall_modules": null,
+            "emSeqQc.smallBamQc.samtoolsStatsSmall_threads": null,
+            "emSeqQc.smallBamQc.samtoolsStatsSmall_timeout": null,
+            "emSeqQc.smallBamQc.storeDownsampledCounts_memory": null,
+            "emSeqQc.smallBamQc.storeDownsampledCounts_modules": null,
+            "emSeqQc.smallBamQc.storeDownsampledCounts_threads": null,
+            "emSeqQc.smallBamQc.storeDownsampledCounts_timeout": null,
             "emSeqQc.trim_and_align.bwaIndex": null,
             "emSeqQc.trim_and_align.fastpDisableAdapterTrimming": null,
             "emSeqQc.trim_and_align.fastpDisableLengthFiltering": null,
