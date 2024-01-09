@@ -1,6 +1,6 @@
 version 1.0
 
-import "imports/pull_bamQC.wdl" as bamQC
+import "imports/pull_smallBamQc_1_0_0.wdl" as smallBamQc
 
 struct FastqInput {
     File read1
@@ -19,6 +19,7 @@ struct GenomeResources {
 workflow emSeqQc {
     input {
         Array[FastqInput] fastqInput
+        Int opticalDuplicatePixelDistance
         String outputFileNamePrefix
         String reference
     }
@@ -37,6 +38,7 @@ workflow emSeqQc {
 
     parameter_meta {
         fastqInput: "A list of Read1 and Read2 FastQs and their readgroup"
+        opticalDuplicatePixelDistance: "For MarkDuplicates. The maximum offset between two duplicate clusters in order to consider them optical duplicates. 100 is appropriate for unpatterned versions of the Illumina platform. For the patterned flowcell models, 2500 is more appropriate."
         outputFileNamePrefix: "File prefix"
         reference: "Which reference to align to"
     }
@@ -73,6 +75,7 @@ workflow emSeqQc {
             jsons = trim_and_align.fastpReport,
             prefix = outputFileNamePrefix
     }
+    
     call methylDackel {
         input:
             bam = input_bam,
@@ -81,14 +84,12 @@ workflow emSeqQc {
             fasta = ref.fasta,
             modules = "methyldackel/0.6.1 ~{ref.genomeModule}"
     }
-    call bamQC.bamQC {
+
+    call smallBamQc.smallBamQc {
         input:
-            bamFile = input_bam,
-            metadata = {},
-            bamQCMetrics_modules = "bam-qc-metrics/0.2.5 ~{ref.genomeModule}",
-            bamQCMetrics_refFasta = ref.fasta,
-            bamQCMetrics_refSizesBed = ref.bed,
-            bamQCMetrics_workflowVersion = "5.0.2"
+            bam = input_bam,
+            opticalDuplicatePixelDistance = opticalDuplicatePixelDistance,
+            outputFileNamePrefix = outputFileNamePrefix
     }
 
     call samtoolsStatsLambdaControl {
@@ -108,7 +109,10 @@ workflow emSeqQc {
     output {
         File bedgraph = methylDackel.out
         File fastpReport = mergeFastpJson.json
-        File bamqc = bamQC.result
+        File samtools = smallBamQc.samtools
+        File picard = smallBamQc.picard
+        File bedtoolsCoverage = smallBamQc.bedtoolsCoverage
+        File downsampledCounts = smallBamQc.downsampledCounts
         File controlstatsLambda = samtoolsStatsLambdaControl.out
         File controlstatsPuc19 = samtoolsStatsPuc19Control.out
     }
@@ -143,7 +147,10 @@ workflow emSeqQc {
         output_meta: {
             bedgraph: "MethylDackel zipped output",
             fastpReport: "Merged fastp json reports",
-            bamqc: "bamqc json",
+            samtools: "Samtools stats output",
+            picard: "Picard MarkDuplicates output",
+            bedtoolsCoverage: "Bedtools coverage histogram output",
+            downsampledCounts: "JSON file recording what downsampling was done",
             controlstatsLambda: "samtools stats for lambda control only",
             controlstatsPuc19: "samtools stats for pUC19 control only"
 
@@ -214,7 +221,7 @@ task trim_and_align {
             --stdout --thread ~{threads} \
             ~{fastpQ} ~{fastpq} ~{fastpu} ~{fastpn} ~{fastpL} ~{fastpl} ~{fastpA} ~{fastpG} \
             -i ~{read1} -I ~{read2} \
-        | bwameth.py -p -t ~{threads} --read-group ~{bwaReadGroup} --reference ~{bwaIndex} /dev/stdin \
+        | bwameth.py -p --threads ~{threads} --read-group ~{bwaReadGroup} --reference ~{bwaIndex} /dev/stdin \
         | samtools sort -o output.bam -@ ~{threads} -
         samtools index -@ ~{threads} output.bam
     >>>
