@@ -1,3 +1,50 @@
 ## Commands
-See WDL.
+This section lists command(s) run by emSeqQC workflow
 
+* Running emSeqQC
+
+
+```
+        set -euo pipefail
+        fastp \
+            --stdout --thread ~{threads} \
+            ~{fastpQ} ~{fastpq} ~{fastpu} ~{fastpn} ~{fastpL} ~{fastpl} ~{fastpA} ~{fastpG} \
+            -i ~{read1} -I ~{read2} \
+        | bwameth.py -p --threads ~{threads} --read-group ~{bwaReadGroup} --reference ~{bwaIndex} /dev/stdin \
+        | samtools sort -o output.bam -@ ~{threads} -
+        samtools index -@ ~{threads} output.bam
+```
+
+### Merging and Indexing bams
+
+```
+        set -euo pipefail
+        samtools merge -c -p -o output.bam -@ ~{threads} ~{sep=" " bams}
+        samtools index -@ ~{threads} output.bam
+```
+### Merging json reports
+
+```
+        jq -n '[inputs]' ~{sep=" " jsons} > ~{prefix}.fastp.json
+```
+### Running MethylDackel
+
+```
+        set -euo pipefail
+        MethylDackel extract --mergeContext -@ ~{threads} ~{fasta} ~{bam} -o ~{prefix}.methyldackel
+        gzip ~{prefix}.methyldackel_CpG.bedGraph
+```
+
+### Running samtools stats, no unmapped or secondary reads. lambda reference
+
+```
+        set -euo pipefail
+        samtools stats -F 256 -@ ~{threads} ~{bam} lambda > ~{prefix}.lambda.controlstats
+```
+
+### Running samtools stats, no unmapped or secondary reads. pUC19 reference
+
+```
+        set -euo pipefail
+        samtools stats -F 256 -@ ~{threads} ~{bam} pUC19 > ~{prefix}.puc19.controlstats
+```

@@ -144,17 +144,40 @@ workflow emSeqQc {
                         url: "http://www.htslib.org/doc/samtools.html"
                       }
                       ]
-        output_meta: {
-            bedgraph: "MethylDackel zipped output",
-            fastpReport: "Merged fastp json reports",
-            samtools: "Samtools stats output",
-            picard: "Picard MarkDuplicates output",
-            bedtoolsCoverage: "Bedtools coverage histogram output",
-            downsampledCounts: "JSON file recording what downsampling was done",
-            controlstatsLambda: "samtools stats for lambda control only",
-            controlstatsPuc19: "samtools stats for pUC19 control only"
-
-        }
+    output_meta: {
+    bedgraph: {
+        description: "MethylDackel zipped output",
+        vidarr_label: "bedgraph"
+    },
+    fastpReport: {
+        description: "Merged fastp json reports",
+        vidarr_label: "fastpReport"
+    },
+    samtools: {
+        description: "Samtools stats output",
+        vidarr_label: "samtools"
+    },
+    picard: {
+        description: "Picard MarkDuplicates output",
+        vidarr_label: "picard"
+    },
+    bedtoolsCoverage: {
+        description: "Bedtools coverage histogram output",
+        vidarr_label: "bedtoolsCoverage"
+    },
+    downsampledCounts: {
+        description: "JSON file recording what downsampling was done",
+        vidarr_label: "downsampledCounts"
+    },
+    controlstatsLambda: {
+        description: "samtools stats for lambda control only",
+        vidarr_label: "controlstatsLambda"
+    },
+    controlstatsPuc19: {
+        description: "samtools stats for pUC19 control only",
+        vidarr_label: "controlstatsPuc19"
+    }
+}
     }
 }
 
