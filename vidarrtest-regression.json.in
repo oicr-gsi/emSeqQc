@@ -10,7 +10,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/emSeqQc/expected_output/single.txt",
+                "output_metrics": "/.mounts/labs/gsi/testdata/emSeqQc/output_metrics/single.txt",
                 "type": "script"
             }
         ],
@@ -85,7 +85,7 @@
                 {
                     "read1": {
                         "contents": {
-                            "configuration": "/.mounts/labs/gsi/testdata/emSeqQc/input_data/TCATCTCC-CTTGCTAG_R1.fastq.gz",
+                            "configuration": "/.mounts/labs/gsi/testdata/emSeqQc/test_inputs/Test01_R1.fastq.gz",
                             "externalIds": [
                                 {
                                     "id": "TEST",
@@ -97,7 +97,7 @@
                     }, 
                     "read2": {
                         "contents": {
-                            "configuration": "/.mounts/labs/gsi/testdata/emSeqQc/input_data/TCATCTCC-CTTGCTAG_R2.fastq.gz",
+                            "configuration": "/.mounts/labs/gsi/testdata/emSeqQc/test_inputs/Test01_R2.fastq.gz",
                             "externalIds": [
                                 {
                                     "id": "TEST",
@@ -198,7 +198,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/emSeqQc/expected_output/multi.txt",
+                "output_metrics": "/.mounts/labs/gsi/testdata/emSeqQc/output_metrics/multi.txt",
                 "type": "script"
             }
         ],
@@ -273,7 +273,7 @@
                 {
                     "read1": {
                         "contents": {
-                            "configuration": "/.mounts/labs/gsi/testdata/emSeqQc/input_data/AGCCTATC-TGCGTAAC_R1.fastq.gz",
+                            "configuration": "/.mounts/labs/gsi/testdata/emSeqQc/test_inputs/Test02_R1.fastq.gz",
                             "externalIds": [
                                 {
                                     "id": "TEST",
@@ -285,7 +285,7 @@
                     }, 
                     "read2": {
                         "contents": {
-                            "configuration": "/.mounts/labs/gsi/testdata/emSeqQc/input_data/AGCCTATC-TGCGTAAC_R2.fastq.gz",
+                            "configuration": "/.mounts/labs/gsi/testdata/emSeqQc/test_inputs/Test02_R2.fastq.gz",
                             "externalIds": [
                                 {
                                     "id": "TEST",
@@ -300,7 +300,7 @@
                 {
                     "read1": {
                         "contents": {
-                            "configuration": "/.mounts/labs/gsi/testdata/emSeqQc/input_data/TCATCTCC-CTTGCTAG_R1.fastq.gz",
+                            "configuration": "/.mounts/labs/gsi/testdata/emSeqQc/test_inputs/Test01_R1.fastq.gz",
                             "externalIds": [
                                 {
                                     "id": "TEST",
@@ -312,7 +312,7 @@
                     }, 
                     "read2": {
                         "contents": {
-                            "configuration": "/.mounts/labs/gsi/testdata/emSeqQc/input_data/TCATCTCC-CTTGCTAG_R2.fastq.gz",
+                            "configuration": "/.mounts/labs/gsi/testdata/emSeqQc/test_inputs/Test01_R2.fastq.gz",
                             "externalIds": [
                                 {
                                     "id": "TEST",
