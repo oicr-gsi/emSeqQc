@@ -10,7 +10,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/emSeqQc/output_metrics/single.txt",
+                "output_metrics": "/.mounts/labs/gsi/testdata/emSeqQc/expected_output/v1/single.txt",
                 "type": "script"
             }
         ],
@@ -203,7 +203,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/emSeqQc/output_metrics/multi.txt",
+                "output_metrics": "/.mounts/labs/gsi/testdata/emSeqQc/expected_output/v1/multi.txt",
                 "type": "script"
             }
         ],
