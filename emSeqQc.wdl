@@ -30,6 +30,13 @@ workflow emSeqQc {
             "genomeModule": "hg38-em-seq/p12-2022-10-17",
             "bed": "$HG38_EM_SEQ_ROOT/hg38_random.bed",
             "fasta": "$HG38_EM_SEQ_ROOT/hg38_random.fa"
+        },
+        "hg38_noAlt": {
+            "indexModule": "hg38-noalt-bwa-meth-index/p12-2026-06-03",
+            "index": "$HG38_NOALT_BWA_METH_INDEX_ROOT/hg38_noAlt.fa",
+            "genomeModule": "hg38-noalt-em-seq/p12-2026-06-01",
+            "bed": "$HG38_NOALT_EM_SEQ_ROOT/hg38_noAlt.bed",
+            "fasta": "$HG38_NOALT_EM_SEQ_ROOT/hg38_noAlt.fa"
         }
     }
 
@@ -370,7 +377,7 @@ task methylDackel {
         bam: "The bam file to analyze"
         index: "The .bai index of the bam file"
         prefix: "File prefix"
-        fasta: "FastA file used for alignment"
+        fasta: "Fasta file used for alignment"
         timeout: "The hours until the task is killed"
         memory: "The GB of memory provided to the task"
         threads: "The number of threads the task has access to"
